@@ -1,1 +1,29 @@
 @import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-800 antialiased;
+  }
+
+  ::selection {
+    @apply bg-orange-200 text-slate-900;
+  }
+}
+
+@layer utilities {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-lg bg-orange-600 px-5 py-2.5 text-white shadow-sm transition hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-slate-900 ring-1 ring-slate-300 shadow-sm transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2;
+  }
+
+  .card {
+    @apply rounded-xl border border-slate-200 bg-white shadow-sm;
+  }
+}

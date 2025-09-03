@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function Github() {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    fetch('https://api.github.com/users/Faizan3n')
+      .then(response => response.json())
+      .then(data => setData(data));
+  }, []);
   return (
-    <div className="p-8 text-center">
-      <h1 className="text-3xl font-bold mb-4">Github Page</h1>
-      <p>This is the Github page.</p>
+    <div className="text-center m-4 bg-gray-600">
+      Github Followers: {data ? data.followers : 'Loading...'}<br />
+      Total Public Repositories: {data ? data.public_repos : 'Loading...'}
     </div>
   );
 }
